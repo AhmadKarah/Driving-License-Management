@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Driving_License_Management
+namespace Driving_License_Management.People
 {
-    public partial class Form1 : Form
+    public partial class frmListPeople : Form
     {
-        public Form1()
+        public frmListPeople()
         {
             InitializeComponent();
         }
