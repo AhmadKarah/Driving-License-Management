@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Driving-License-Management", "Driving-License-Management\Driving-License-Management.csproj", "{2BAC947F-44C9-4692-B585-DCF106303162}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Driving-License-Management-Business", "Driving-License-Management-Business\Driving-License-Management-Business.csproj", "{0154159D-25F9-451E-8DDE-EEF0B90D9A0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Driving-License-Management-DataAccess", "Driving-License-Management-DataAccess\Driving-License-Management-DataAccess.csproj", "{EA821DE5-F8DC-46A3-B5E4-CA6225BF9EA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Driving-License-Management-DTOs", "Driving-License-Management-DTOs\Driving-License-Management-DTOs.csproj", "{3A374CAB-C2E9-46A7-8F58-3F010BBAE67B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{2BAC947F-44C9-4692-B585-DCF106303162}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BAC947F-44C9-4692-B585-DCF106303162}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BAC947F-44C9-4692-B585-DCF106303162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0154159D-25F9-451E-8DDE-EEF0B90D9A0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0154159D-25F9-451E-8DDE-EEF0B90D9A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0154159D-25F9-451E-8DDE-EEF0B90D9A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0154159D-25F9-451E-8DDE-EEF0B90D9A0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA821DE5-F8DC-46A3-B5E4-CA6225BF9EA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA821DE5-F8DC-46A3-B5E4-CA6225BF9EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA821DE5-F8DC-46A3-B5E4-CA6225BF9EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA821DE5-F8DC-46A3-B5E4-CA6225BF9EA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A374CAB-C2E9-46A7-8F58-3F010BBAE67B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A374CAB-C2E9-46A7-8F58-3F010BBAE67B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A374CAB-C2E9-46A7-8F58-3F010BBAE67B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A374CAB-C2E9-46A7-8F58-3F010BBAE67B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Driving_License_Management_Business
 {
-    public class Class1
+    public class clsPerson
     {
     }
 }

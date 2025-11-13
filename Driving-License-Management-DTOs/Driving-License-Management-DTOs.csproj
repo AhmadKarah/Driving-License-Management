@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0154159D-25F9-451E-8DDE-EEF0B90D9A0F}</ProjectGuid>
+    <ProjectGuid>{3A374CAB-C2E9-46A7-8F58-3F010BBAE67B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Driving_License_Management_Business</RootNamespace>
-    <AssemblyName>Driving-License-Management-Business</AssemblyName>
+    <RootNamespace>Driving_License_Management_DTOs</RootNamespace>
+    <AssemblyName>Driving-License-Management-DTOs</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,18 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsPerson.cs" />
+    <Compile Include="CountryDTO.cs" />
+    <Compile Include="PersonDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Driving-License-Management-DataAccess\Driving-License-Management-DataAccess.csproj">
-      <Project>{ea821de5-f8dc-46a3-b5e4-ca6225bf9ea8}</Project>
-      <Name>Driving-License-Management-DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Driving-License-Management-DTOs\Driving-License-Management-DTOs.csproj">
-      <Project>{3a374cab-c2e9-46a7-8f58-3f010bbae67b}</Project>
-      <Name>Driving-License-Management-DTOs</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

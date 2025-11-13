@@ -434,5 +434,15 @@
   <ItemGroup>
     <None Include="Resources\Written Test 512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Driving-License-Management-Business\Driving-License-Management-Business.csproj">
+      <Project>{0154159d-25f9-451e-8dde-eef0b90d9a0f}</Project>
+      <Name>Driving-License-Management-Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Driving-License-Management-DTOs\Driving-License-Management-DTOs.csproj">
+      <Project>{3a374cab-c2e9-46a7-8f58-3f010bbae67b}</Project>
+      <Name>Driving-License-Management-DTOs</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
