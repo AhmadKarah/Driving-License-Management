@@ -21,7 +21,7 @@ namespace Driving_License_Management_DTOs
         public string Email { get; set; }
         public string Phone { get; set; }
         public int NationalityCountryID { get; set; }
-        public CountryDTO CountryInfo { get; set; }
+        public string CountryName { get; set; }
         public string ImagePath { get; set; }
     }
 }

@@ -12,9 +12,9 @@ namespace Driving_License_Management_DataAccess
 {
     public class clsPersonData
     {
-        public static PersonDTO GetPersonByID(int PersonID)
+        public static PersonDTO GetPersonByID(int PersonID, ref PersonDTO person)
         {
-            PersonDTO person = null;
+            person = null;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -46,12 +46,8 @@ namespace Driving_License_Management_DataAccess
                         DateOfBirth = (DateTime)reader["DateOfBirth"],
                         NationalNo = (string)reader["NationalNo"],
                         NationalityCountryID = (int)reader["NationalityCountryID"],
+                        CountryName = (string)reader["CountryName"],
                         ImagePath = reader["ImagePath"] != DBNull.Value ? (string)reader["ImagePath"] : "",
-                        CountryInfo = new CountryDTO
-                        {
-                            CountryID = (int)reader["NationalityCountryID"],
-                            CountryName = (string)reader["CountryName"]
-                        }
                     };
                 }
                 reader.Close();
@@ -67,9 +63,9 @@ namespace Driving_License_Management_DataAccess
             return person;
         }
 
-        public static PersonDTO GetPersonByNationalNo(string NationalNo)
+        public static PersonDTO GetPersonByNationalNo(string NationalNo, ref PersonDTO person)
         {
-            PersonDTO person = null;
+            person = null;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -101,12 +97,8 @@ namespace Driving_License_Management_DataAccess
                         DateOfBirth = (DateTime)reader["DateOfBirth"],
                         NationalNo = (string)reader["NationalNo"],
                         NationalityCountryID = (int)reader["NationalityCountryID"],
+                        CountryName = (string)reader["CountryName"],
                         ImagePath = reader["ImagePath"] != DBNull.Value ? (string)reader["ImagePath"] : "",
-                        CountryInfo = new CountryDTO
-                        {
-                            CountryID = (int)reader["NationalityCountryID"],
-                            CountryName = (string)reader["CountryName"]
-                        }
                     };
                 }
                 reader.Close();
@@ -164,12 +156,8 @@ namespace Driving_License_Management_DataAccess
                         Phone = reader["Phone"].ToString(),
                         Email = reader["Email"].ToString(),
                         NationalityCountryID = (int)reader["NationalityCountryID"],
+                        CountryName = (string)reader["CountryName"],
                         ImagePath = reader["ImagePath"].ToString(),
-                        CountryInfo = new CountryDTO
-                        {
-                            CountryID = (int)reader["NationalityCountryID"],
-                            CountryName = (string)reader["CountryName"]
-                        }
                     });
                 }
                 reader.Close();
@@ -306,7 +294,7 @@ namespace Driving_License_Management_DataAccess
             return (rowdAffected > 0);
         }
 
-        public bool IsPersonExist (int PersonID)
+        public static bool IsPersonExist (int PersonID)
         {
             bool isFound = false;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -334,7 +322,7 @@ namespace Driving_License_Management_DataAccess
             return isFound;
         }
 
-        public bool IsPersonExist(string NationalNo)
+        public static bool IsPersonExist(string NationalNo)
         {
             bool isFound = false;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
