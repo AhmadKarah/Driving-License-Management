@@ -30,9 +30,9 @@
         {
             this.pbPeople = new System.Windows.Forms.PictureBox();
             this.lblManage = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvListpeople = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListpeople)).BeginInit();
             this.SuspendLayout();
             // 
             // pbPeople
@@ -55,29 +55,30 @@
             this.lblManage.TabIndex = 1;
             this.lblManage.Text = "Manage People";
             // 
-            // dataGridView1
+            // dgvListpeople
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 334);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1347, 313);
-            this.dataGridView1.TabIndex = 2;
+            this.dgvListpeople.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvListpeople.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListpeople.Location = new System.Drawing.Point(12, 289);
+            this.dgvListpeople.Name = "dgvListpeople";
+            this.dgvListpeople.RowHeadersWidth = 51;
+            this.dgvListpeople.RowTemplate.Height = 24;
+            this.dgvListpeople.Size = new System.Drawing.Size(1347, 358);
+            this.dgvListpeople.TabIndex = 2;
             // 
             // frmListPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1371, 738);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvListpeople);
             this.Controls.Add(this.lblManage);
             this.Controls.Add(this.pbPeople);
             this.Name = "frmListPeople";
             this.Text = "frmListPeople";
+            this.Load += new System.EventHandler(this.frmListPeople_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbPeople)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListpeople)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -87,6 +88,6 @@
 
         private System.Windows.Forms.PictureBox pbPeople;
         private System.Windows.Forms.Label lblManage;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvListpeople;
     }
 }

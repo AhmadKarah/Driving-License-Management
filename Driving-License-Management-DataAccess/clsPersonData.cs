@@ -8,6 +8,7 @@ using Driving_License_Management_DTOs;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 
+
 namespace Driving_License_Management_DataAccess
 {
     public class clsPersonData
@@ -144,27 +145,28 @@ namespace Driving_License_Management_DataAccess
                 {
                     people.Add(new PersonDTO
                     {
-                        PersonID = (int)reader["PersonID"],
+                        PersonID = Convert.ToInt32(reader["PersonID"]),
                         FirstName = reader["FirstName"].ToString(),
                         SecondName = reader["SecondName"].ToString(),
                         ThirdName = reader["ThirdName"].ToString(),
                         LastName = reader["LastName"].ToString(),
                         NationalNo = reader["NationalNo"].ToString(),
-                        Gender = (short)reader["Gender"],
-                        DateOfBirth = (DateTime)reader["DateOfBirth"],
+                        Gender = Convert.ToInt16(reader["Gender"]),
+                        DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
                         Address = reader["Address"].ToString(),
                         Phone = reader["Phone"].ToString(),
                         Email = reader["Email"].ToString(),
-                        NationalityCountryID = (int)reader["NationalityCountryID"],
-                        CountryName = (string)reader["CountryName"],
-                        ImagePath = reader["ImagePath"].ToString(),
+                        NationalityCountryID = Convert.ToInt32(reader["NationalityCountryID"]),
+                        CountryName = reader["CountryName"].ToString(),
+                        ImagePath = reader["ImagePath"] == DBNull.Value ? "" : reader["ImagePath"].ToString(),
                     });
                 }
                 reader.Close();
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.ToString());
+                throw;
             }
             finally
             {

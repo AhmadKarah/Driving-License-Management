@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Driving_License_Management.People;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,8 @@ namespace Driving_License_Management
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmListPeople form = new frmListPeople();
+            form.ShowDialog();
         }
     }
 }
