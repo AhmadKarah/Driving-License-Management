@@ -86,21 +86,13 @@ namespace Driving_License_Management_Business
 
         public static clsPerson Find(int PersonID)
         {
-            PersonDTO person = new PersonDTO();
-            clsPersonData.GetPersonByID(PersonID, ref person);
-            if (person == null)
-                return null;
-
+            PersonDTO person = clsPersonData.GetPersonByID(PersonID);
             return new clsPerson(person);
         }
 
         public static clsPerson Find(string NationalNo)
         {
-            PersonDTO person = new PersonDTO();
-            clsPersonData.GetPersonByNationalNo(NationalNo, ref person);
-            if (person == null)
-                return null;
-
+            PersonDTO person = clsPersonData.GetPersonByNationalNo(NationalNo);
             return new clsPerson(person);
         }
 

@@ -13,9 +13,9 @@ namespace Driving_License_Management_DataAccess
 {
     public class clsPersonData
     {
-        public static PersonDTO GetPersonByID(int PersonID, ref PersonDTO person)
+        public static PersonDTO GetPersonByID(int PersonID)
         {
-            person = null;
+            PersonDTO person = null;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -35,20 +35,20 @@ namespace Driving_License_Management_DataAccess
                 {
                     person = new PersonDTO
                     {
-                        PersonID = (int)reader["PersonID"],
-                        FirstName = (string)reader["FirstName"],
-                        SecondName = (string)reader["SecondName"],
-                        ThirdName = (string)reader["ThirdName"],
-                        LastName = (string)reader["LastName"],
-                        Email = (string)reader["Email"],
-                        Phone = (string)reader["Phone"],
-                        Address = (string)reader["Address"],
-                        Gender = (short)reader["Gender"],
-                        DateOfBirth = (DateTime)reader["DateOfBirth"],
-                        NationalNo = (string)reader["NationalNo"],
-                        NationalityCountryID = (int)reader["NationalityCountryID"],
-                        CountryName = (string)reader["CountryName"],
-                        ImagePath = reader["ImagePath"] != DBNull.Value ? (string)reader["ImagePath"] : "",
+                        PersonID = Convert.ToInt32(reader["PersonID"]),
+                        FirstName = reader["FirstName"].ToString(),
+                        SecondName = reader["SecondName"].ToString(),
+                        ThirdName = reader["ThirdName"].ToString(),
+                        LastName = reader["LastName"].ToString(),
+                        NationalNo = reader["NationalNo"].ToString(),
+                        Gender = Convert.ToInt16(reader["Gender"]),
+                        DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
+                        Address = reader["Address"].ToString(),
+                        Phone = reader["Phone"].ToString(),
+                        Email = reader["Email"].ToString(),
+                        NationalityCountryID = Convert.ToInt32(reader["NationalityCountryID"]),
+                        CountryName = reader["CountryName"].ToString(),
+                        ImagePath = reader["ImagePath"] == DBNull.Value ? "" : reader["ImagePath"].ToString(),
                     };
                 }
                 reader.Close();
@@ -64,9 +64,9 @@ namespace Driving_License_Management_DataAccess
             return person;
         }
 
-        public static PersonDTO GetPersonByNationalNo(string NationalNo, ref PersonDTO person)
+        public static PersonDTO GetPersonByNationalNo(string NationalNo)
         {
-            person = null;
+            PersonDTO person = null;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
@@ -86,20 +86,20 @@ namespace Driving_License_Management_DataAccess
                 {
                     person = new PersonDTO
                     {
-                        PersonID = (int)reader["PersonID"],
-                        FirstName = (string)reader["FirstName"],
-                        SecondName = (string)reader["SecondName"],
-                        ThirdName = (string)reader["ThirdName"],
-                        LastName = (string)reader["LastName"],
-                        Email = (string)reader["Email"],
-                        Phone = (string)reader["Phone"],
-                        Address = (string)reader["Address"],
-                        Gender = (short)reader["Gender"],
-                        DateOfBirth = (DateTime)reader["DateOfBirth"],
-                        NationalNo = (string)reader["NationalNo"],
-                        NationalityCountryID = (int)reader["NationalityCountryID"],
-                        CountryName = (string)reader["CountryName"],
-                        ImagePath = reader["ImagePath"] != DBNull.Value ? (string)reader["ImagePath"] : "",
+                        PersonID = Convert.ToInt32(reader["PersonID"]),
+                        FirstName = reader["FirstName"].ToString(),
+                        SecondName = reader["SecondName"].ToString(),
+                        ThirdName = reader["ThirdName"].ToString(),
+                        LastName = reader["LastName"].ToString(),
+                        NationalNo = reader["NationalNo"].ToString(),
+                        Gender = Convert.ToInt16(reader["Gender"]),
+                        DateOfBirth = Convert.ToDateTime(reader["DateOfBirth"]),
+                        Address = reader["Address"].ToString(),
+                        Phone = reader["Phone"].ToString(),
+                        Email = reader["Email"].ToString(),
+                        NationalityCountryID = Convert.ToInt32(reader["NationalityCountryID"]),
+                        CountryName = reader["CountryName"].ToString(),
+                        ImagePath = reader["ImagePath"] == DBNull.Value ? "" : reader["ImagePath"].ToString(),
                     };
                 }
                 reader.Close();

@@ -24,5 +24,10 @@ namespace Driving_License_Management.People
             List<PersonDTO> people = clsPerson.GetAllPeople();
             dgvListpeople.DataSource = people;
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
