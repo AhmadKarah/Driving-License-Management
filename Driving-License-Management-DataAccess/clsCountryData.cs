@@ -10,9 +10,9 @@ namespace Driving_License_Management_DataAccess
 {
     public class clsCountryData
     {
-        public static CountryDTO GetCountryByID(int CountryID, ref CountryDTO country)
+        public static CountryDTO GetCountryByID(int CountryID)
         {
-            country = null;
+            CountryDTO country = null;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"SELECT * FROM Countries WHERE CountryID = @CountryID";
@@ -44,9 +44,9 @@ namespace Driving_License_Management_DataAccess
             return country;
         }
 
-        public static CountryDTO GetCountryByName(string CountryName, ref CountryDTO country)
+        public static CountryDTO GetCountryByName(string CountryName)
         {
-            country= null;
+            CountryDTO country = null;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"SELECT * FROM Countries WHERE CountryName = @CountryName";
@@ -80,7 +80,7 @@ namespace Driving_License_Management_DataAccess
 
         public static List<CountryDTO> GetAllCountries()
         {
-            List<CountryDTO> countries = null;
+            List<CountryDTO> countries = new List<CountryDTO>();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             string query = @"SELECT * FROM Countries";
@@ -95,8 +95,8 @@ namespace Driving_License_Management_DataAccess
                 {
                     countries.Add(new CountryDTO
                     {
-                        CountryID = (int)reader["CountryID"],
-                        CountryName = (string)reader["CountryName"]
+                        CountryID = Convert.ToInt32(reader["CountryID"]),
+                        CountryName = reader["CountryName"].ToString()
                     });
                 }
                 reader.Close();

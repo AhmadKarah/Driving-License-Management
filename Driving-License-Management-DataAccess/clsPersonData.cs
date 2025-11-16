@@ -242,6 +242,7 @@ namespace Driving_License_Management_DataAccess
                     ImagePath = @ImagePath
                 WHERE PersonID = @PersonID";
             SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", person.PersonID);
             command.Parameters.AddWithValue("@FirstName", person.FirstName);
             command.Parameters.AddWithValue("@SecondName", person.SecondName);
             command.Parameters.AddWithValue("@ThirdName", person.ThirdName ?? (object)DBNull.Value);

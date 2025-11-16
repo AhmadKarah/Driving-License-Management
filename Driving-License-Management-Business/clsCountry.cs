@@ -28,19 +28,13 @@ namespace Driving_License_Management_Business
 
         public static clsCountry Find(int CountryID)
         {
-            CountryDTO country = new CountryDTO();
-            clsCountryData.GetCountryByID(CountryID, ref country);
-            if (country == null)
-                return null;
+            CountryDTO country = clsCountryData.GetCountryByID(CountryID);
             return new clsCountry(country);
         }
 
         public static clsCountry Find(string CountryName)
         {
-            CountryDTO country = new CountryDTO();
-            clsCountryData.GetCountryByName(CountryName, ref country);
-            if (country == null)
-                return null;
+            CountryDTO country = clsCountryData.GetCountryByName(CountryName);
             return new clsCountry(country);
         }
 

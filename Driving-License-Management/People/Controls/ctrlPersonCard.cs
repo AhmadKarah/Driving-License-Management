@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Driving_License_Management.People.frmAddUpdatePerson;
 
 namespace Driving_License_Management.People.Controls
 {
@@ -17,7 +18,7 @@ namespace Driving_License_Management.People.Controls
         private clsPerson _Person;
         private int _PersonID = -1;
 
-        public int PersonId
+        public int PersonID
         {
             get { return _PersonID; }
         }
@@ -32,18 +33,13 @@ namespace Driving_License_Management.People.Controls
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         public void LoadPersonInfo(int PersonID)
         {
             _Person = clsPerson.Find(PersonID);
             if (_Person == null)
             {
                 ResetPersonInfo();
-                MessageBox.Show("No Person with PersonID. = " + PersonID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No Person with PersonID = " + PersonID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -63,48 +59,54 @@ namespace Driving_License_Management.People.Controls
             _FillPersonInfo();
         }
 
+        private void _LoadPersonImage()
+        {
+            if (_Person.Gender == 0)
+            {
+                pbPerson.Image = Resources.Male_512;
+            }
+            else
+            {
+                pbPerson.Image = Resources.Female_512;
+            }
+        }
+
         private void _FillPersonInfo()
         {
-            if (_Person == null)
-            {
-                MessageBox.Show("Person not loaded!");
-                return;
-            }
-
-            llEdit.Enabled = true;
+            llEditPerson.Enabled = true;
             _PersonID = _Person.PersonID;
-            lbPersonID.Text = _Person.PersonID.ToString();
-            lbNationalNo.Text = _Person.NationalNo;
-            lbName.Text = _Person.FullName;
-            lbGender.Text = _Person.Gender == 0 ? "Male" : "Female";
-            lbEmail.Text = _Person.Email;
-            lbPhone.Text = _Person.Phone;
-            lbDateOfBirth.Text = _Person.DateOfBirth.ToShortDateString();
-            var country = clsCountry.Find(_Person.NationalityCountryID);
-            lbCountry.Text = country != null ? country.CountryName : "Unknown";
-            lbAddress.Text = _Person.Address;
+            lblPersonID.Text = _Person.PersonID.ToString();
+            lblNationalNo.Text = _Person.NationalNo;
+            lblName.Text = _Person.FullName;
+            lblGender.Text = _Person.Gender == 0 ? "Male" : "Female";
+            lblEmail.Text = _Person.Email;
+            lblPhone.Text = _Person.Phone;
+            lblDateOfBirth.Text = _Person.DateOfBirth.ToShortDateString();
+            lblCountry.Text = clsCountry.Find(_Person.NationalityCountryID).CountryName;
+            lblAddress.Text = _Person.Address;
+            _LoadPersonImage();
         }
 
         public void ResetPersonInfo()
         {
             _PersonID = -1;
-            lbPersonID.Text = "[????]";
-            lbNationalNo.Text = "[????]";
-            lbName.Text = "[????]";
-            lbGender.Text = "[????]";
-            lbEmail.Text = "[????]";
-            lbPhone.Text = "[????]";
-            lbDateOfBirth.Text = "[????]";
-            lbCountry.Text = "[????]";
-            lbAddress.Text = "[????]";
+            lblPersonID.Text = "[????]";
+            lblNationalNo.Text = "[????]";
+            lblName.Text = "[????]";
+            lblGender.Text = "[????]";
+            lblEmail.Text = "[????]";
+            lblPhone.Text = "[????]";
+            lblDateOfBirth.Text = "[????]";
+            lblCountry.Text = "[????]";
+            lblAddress.Text = "[????]";
+            pbPerson.Image = Resources.Male_512;
         }
 
-        private void llEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void llEditPerson_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson(_PersonID);
             frm.ShowDialog();
             LoadPersonInfo(_PersonID);
-            
         }
     }
 }
